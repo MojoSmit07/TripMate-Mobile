@@ -1,0 +1,20 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-native",  // Ensures JSX is handled correctly for React Native
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "services/LocalStorageService.jsx",  // If needed, but ideally .tsx or .ts for TypeScript compatibility
+    "app/_layout.jsx"  // You may want to rename this to .tsx if it contains JSX
+  ]
+}
