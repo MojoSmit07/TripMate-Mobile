@@ -3,18 +3,30 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "react-native",  // Ensures JSX is handled correctly for React Native
+    "baseUrl": ".",  // Required for path aliasing to work properly
     "paths": {
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "allowSyntheticDefaultImports": true,  // Simplifies importing React and other default imports
+    "esModuleInterop": true,  // Ensures compatibility with CommonJS modules
+    "skipLibCheck": true,  // Speeds up builds by skipping type checks in libraries
+    "resolveJsonModule": true,  // Allows importing JSON files as modules
+    "types": ["expo-router"]  // Adds type definitions for Expo Router
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "services/LocalStorageService.jsx",  // If needed, but ideally .tsx or .ts for TypeScript compatibility
-    "app/_layout.jsx"  // You may want to rename this to .tsx if it contains JSX
+    "services/LocalStorageService.jsx",  // Should ideally be renamed to .tsx for consistency
+    "app/_layout.jsx"  // Should ideally be renamed to .tsx for compatibility with TypeScript
+  ],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
   ]
 }
